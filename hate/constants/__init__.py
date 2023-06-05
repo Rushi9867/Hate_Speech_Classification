@@ -11,20 +11,20 @@ BUCKET_NAME = 'hate-speech'
 ZIP_FILE_NAME = 'D://Python Programs//NLP//Projects//Hate-Speech-Classification//dataset.zip' #'dataset.zip'
 LABEL = 'label'
 TWEET = 'tweet'
-MODEL_NAME = 'D:/Python Programs//NLP//Projects//Hate-Speech-Classification//artifacts//05_25_2023_17_19_44//ModelTrainerArtifacts//model.h5'#'D://Python Programs//NLP//Projects//Hate-Speech-Classification//notebook//model.h5'#'model.h5'
+MODEL_NAME = 'model.h5'#'D:/Python Programs//NLP//Projects//Hate-Speech-Classification//artifacts//05_25_2023_17_19_44//ModelTrainerArtifacts//model.h5'#'D://Python Programs//NLP//Projects//Hate-Speech-Classification//notebook//model.h5'#'model.h5'
 APP_HOST = "127.0.0.1" #"0.0.0.0"
 APP_PORT = 8080
 
 # Data ingestion constants
 DATA_INGESTION_ARTIFACTS_DIR = "DataIngestionArtifacts"
-#DATA_INGESTION_IMBALANCE_DATA_DIR = "imbalanced_data.csv"
-DATA_INGESTION_RAW_DATA_DIR = "labeled_data.csv" #"D://Python Programs//NLP//Projects//Hate-Speech-Classification//notebook//labeled_data.csv" #
+DATA_INGESTION_IMBALANCE_DATA_DIR = "imbalanced_data.csv"
+DATA_INGESTION_RAW_DATA_DIR = "raw_data.csv" 
 
 # Data transformation constants 
 DATA_TRANSFORMATION_ARTIFACTS_DIR = 'DataTransformationArtifacts'
 TRANSFORMED_FILE_NAME = "final.csv"
 DATA_DIR = "data"
-#ID = 'id'
+ID = 'id'
 AXIS = 1
 INPLACE = True
 DROP_COLUMNS = ['Unnamed: 0','count','hate_speech','offensive_language','neither']

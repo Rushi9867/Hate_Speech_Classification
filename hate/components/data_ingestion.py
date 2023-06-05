@@ -44,8 +44,8 @@ class DataIngestion:
 
             logging.info("Exited the unzip_and_clean method of Data ingestion class")
 
-            #return self.data_ingestion_config.DATA_ARTIFACTS_DIR, self.data_ingestion_config.NEW_DATA_ARTIFACTS_DIR
-            return self.data_ingestion_config.NEW_DATA_ARTIFACTS_DIR
+            return self.data_ingestion_config.DATA_ARTIFACTS_DIR, self.data_ingestion_config.NEW_DATA_ARTIFACTS_DIR
+            #return self.data_ingestion_config.NEW_DATA_ARTIFACTS_DIR
 
         except Exception as e:
             raise CustomException(e, sys) from e
@@ -68,14 +68,14 @@ class DataIngestion:
 
             logging.info("Fetched the data from S3 bucket")
 
-            #imbalance_data_file_path, raw_data_file_path = self.unzip_and_clean()
-            raw_data_file_path = self.unzip_and_clean()
+            imbalance_data_file_path, raw_data_file_path = self.unzip_and_clean()
+            #raw_data_file_path = self.unzip_and_clean()
 
             logging.info("Unzipped file and split into train and valid")
 
-            #data_ingestion_artifacts = DataIngestionArtifacts(imbalance_data_file_path=imbalance_data_file_path,
-            #                                                  raw_data_file_path=raw_data_file_path)
-            data_ingestion_artifacts = DataIngestionArtifacts(raw_data_file_path=raw_data_file_path)
+            data_ingestion_artifacts = DataIngestionArtifacts(imbalance_data_file_path=imbalance_data_file_path,
+                                                              raw_data_file_path=raw_data_file_path)
+            #data_ingestion_artifacts = DataIngestionArtifacts(raw_data_file_path=raw_data_file_path)
 
             logging.info("Exited the initiate_data_ingestion method of Data ingestion class")
 

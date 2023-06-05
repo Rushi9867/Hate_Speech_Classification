@@ -18,9 +18,8 @@ class DataTransformation:
         self.data_transformation_config = data_transformation_config
         self.data_ingestion_artifacts = data_ingestion_artifacts
 
-    '''
+    
     def imbalance_data_cleaning(self):
-
         try:
             logging.info("Entered into the imbalance_data_cleaning function")
             imbalance_data=pd.read_csv(self.data_ingestion_artifacts.imbalance_data_file_path)
@@ -31,7 +30,7 @@ class DataTransformation:
         except Exception as e:
             raise CustomException(e,sys) from e 
 
-    '''
+    
     def raw_data_cleaning(self):
         
         try:
@@ -63,9 +62,9 @@ class DataTransformation:
         try:
             logging.info("Entered into the concat_dataframe function")
             # Let's concatinate both the data into a single data frame.
-            #frame = [self.raw_data_cleaning(), self.imbalance_data_cleaning()]
-            #df = pd.concat(frame)
-            df = self.raw_data_cleaning()
+            frame = [self.raw_data_cleaning(), self.imbalance_data_cleaning()]
+            df = pd.concat(frame)
+            #df = self.raw_data_cleaning()
             print(df.head())
             logging.info(f"returned the concatinated dataframe {df}")
             return df
@@ -105,7 +104,7 @@ class DataTransformation:
     def initiate_data_transformation(self) -> DataTransformationArtifacts:
         try:
             logging.info("Entered the initiate_data_transformation method of Data transformation class")
-            #self.imbalance_data_cleaning()
+            self.imbalance_data_cleaning()
             self.raw_data_cleaning()
             df = self.concat_dataframe()
             df[self.data_transformation_config.TWEET]=df[self.data_transformation_config.TWEET].apply(self.concat_data_cleaning)
